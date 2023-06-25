@@ -11,7 +11,7 @@ services:
     branch: main            # optional (defaults to master)
     healthCheckPath: /healthz
     buildCommand: npm install
-    startCommand: node app.js
+    startCommand: node index.js
     envVars:
       - key: PORT
         sync: false
