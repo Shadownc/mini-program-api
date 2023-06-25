@@ -20,7 +20,7 @@ async function chat(content, res) {
             temperature: 0.7,
             stream: true,
         }, {
-            responseType: 'stream', 
+            responseType: 'stream',
             //本地调用开启代理
             // proxy: {
             //     host: "127.0.0.1", port: 7890, protocol: "socks5"
@@ -76,6 +76,11 @@ async function chat(content, res) {
     // res.send(chatCompletion.data.choices[0].message)
 
 }
+
+/*health check for render*/
+app.get('/healthz', function (req, res, next) {
+    res.status(200).end();
+});
 
 app.get('/chat', (req, res) => {
     const { message } = req.query
