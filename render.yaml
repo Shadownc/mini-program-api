@@ -1,0 +1,22 @@
+services:
+  # node web service
+  - type: web
+    name: mini-program-api
+    env: node
+    rootDir: .
+    autoDeploy: false
+    repo: https://github.com/Shadownc/mini-program-api.git # optional
+    region: singapore       # optional (defaults to oregon)
+    plan: free              # optional (defaults to starter instance type)
+    branch: main            # optional (defaults to master)
+    healthCheckPath: /healthz
+    buildCommand: npm install
+    startCommand: node app.js
+    envVars:
+      - key: PORT
+        sync: false
+      - key: OPENAI_MODEL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+        
